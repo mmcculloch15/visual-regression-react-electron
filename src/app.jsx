@@ -7,13 +7,13 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      diffPaths: this.props.diffPaths,
+      imagePaths: this.props.imagePaths,
     }
   }
   render() {
     return (
       <div style={{ display: 'flex' }}>
-        <SideBar diffImages={this.props.diffPaths} />
+        <SideBar imagePaths={this.props.imagePaths} />
         <MainView />
       </div>
     )

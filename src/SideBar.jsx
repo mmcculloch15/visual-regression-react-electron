@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import TestDetails from './TestDetails'
+import { extractTestDataFromPath } from './helpers'
 
 const StyledSideBar = styled.div`
   flex: 20%;
@@ -10,10 +11,18 @@ const StyledSideBar = styled.div`
 
 export default class SideBar extends Component {
   render() {
+    const diffPaths = this.props.imagePaths.diff
     return (
       <StyledSideBar>
         I'm here!
-        <TestDetails />
+        {diffPaths.map(path => {
+          const testData = extractTestDataFromPath(path)
+          const key = `${testData.component}.${testData.browser}.${testData.breakpoint}.${
+            testData.title
+          }`
+          console.log(testData)
+          return <TestDetails key={key} testData={testData} />
+        })}
       </StyledSideBar>
     )
   }
