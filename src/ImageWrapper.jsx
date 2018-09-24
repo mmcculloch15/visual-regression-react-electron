@@ -19,16 +19,3 @@ const ImageWrapper = props => {
 }
 
 export default ImageWrapper
-
-{
-  /* export default class ImageWrapper extends Component {
-  render() {
-    return (
-      <StyledImageWrapper>
-        <p>{title}</p>
-        <img src={'../' + src} />
-      </StyledImageWrapper>
-    )
-  }
-} */
-}
