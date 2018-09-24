@@ -4,22 +4,23 @@ import TestDetails from './TestDetails'
 import { extractTestDataFromPath, getScreenshotPaths } from './helpers'
 
 const StyledSideBar = styled.div`
-  flex: 20%;
+  flex: 15%;
   border-right: 2px solid black;
-  height: 100vh;
+  overflow: auto;
+  display: block;
 `
 
-export default class SideBar extends Component {
-  render() {
-    const diffPaths = this.props.imagePaths.diff
-    return (
-      <StyledSideBar>
-        {diffPaths.map(path => {
-          const testData = extractTestDataFromPath(path)
-          const key = `${testData.browser}.${testData.breakpoint}.${testData.title}`
-          return <TestDetails key={key} {...testData} {...this.props} />
-        })}
-      </StyledSideBar>
-    )
-  }
+const SideBar = props => {
+  const diffPaths = props.imagePaths.diff
+  return (
+    <StyledSideBar>
+      {diffPaths.map(path => {
+        const testData = extractTestDataFromPath(path)
+        const key = `${testData.browser}.${testData.breakpoint}.${testData.title}`
+        return <TestDetails key={key} {...testData} {...props} />
+      })}
+    </StyledSideBar>
+  )
 }
+
+export default SideBar

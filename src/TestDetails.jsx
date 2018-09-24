@@ -4,7 +4,6 @@ import styled from 'styled-components'
 
 const Test = styled.div`
   border-bottom: 2px solid black;
-  z-index: 1;
 `
 export default class TestDetails extends Component {
   render() {
