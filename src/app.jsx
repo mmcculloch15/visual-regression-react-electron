@@ -8,12 +8,30 @@ export default class App extends Component {
     super(props)
     this.state = {
       imagePaths: this.props.imagePaths,
+      activeTest: {
+        baseline: '',
+        latest: '',
+        diff: '',
+      },
     }
+    this.setActiveTest = this.setActiveTest.bind(this)
   }
+
+  setActiveTest(baseline, latest, diff) {
+    console.log('hi!')
+    this.setState({
+      activeTest: {
+        baseline,
+        latest,
+        diff,
+      },
+    })
+  }
+
   render() {
     return (
       <div style={{ display: 'flex' }}>
-        <SideBar imagePaths={this.props.imagePaths} />
+        <SideBar imagePaths={this.props.imagePaths} setActiveTest={this.setActiveTest} />
         <MainView />
       </div>
     )

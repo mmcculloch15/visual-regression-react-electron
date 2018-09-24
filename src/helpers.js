@@ -7,5 +7,16 @@ export function extractTestDataFromPath(path) {
     fileName: splitPath[5],
     browser: splitTestDetails[1],
     title: splitTestDetails[0],
+    baseline: path.replace('diff', 'baseline'),
+    latest: path.replace('diff, latest'),
+    diff: path,
+  }
+}
+
+export function getScreenshotPaths(diffSrc) {
+  return {
+    baseline: diffSrc.replace('diff', 'baseline'),
+    latest: diffSrc.replace('diff', 'latest'),
+    diff: diffSrc,
   }
 }
