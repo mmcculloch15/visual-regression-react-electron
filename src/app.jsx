@@ -32,7 +32,7 @@ export default class App extends Component {
     return (
       <div style={{ display: 'flex' }}>
         <SideBar imagePaths={this.props.imagePaths} setActiveTest={this.setActiveTest} />
-        <MainView />
+        <MainView activeTest={this.state.activeTest} />
       </div>
     )
   }
