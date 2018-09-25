@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { extractTestDataFromPath } from './helpers'
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import Divider from '@material-ui/core/Divider'
 
 export default class TestDetails extends Component {
   render() {
@@ -20,7 +20,6 @@ export default class TestDetails extends Component {
         </ListItem>
         <Divider />
       </div>
-
-    );
+    )
   }
 }
