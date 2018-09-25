@@ -8,20 +8,21 @@ import Icon from '@material-ui/core/Icon';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { getImagePaths } from './fs'
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      imagePaths: this.props.imagePaths,
+      imagePaths: getImagePaths(),
       activeTest: {},
     }
+    console.log(this.state)
     this.setActiveTest = this.setActiveTest.bind(this)
-    this.clearActiveTest = this.clearActiveTest.bind(this)
+    this.resolveActiveTest = this.resolveActiveTest.bind(this)
   }
 
   setActiveTest(baseline, latest, diff) {
-    console.log('hi!')
     this.setState({
       activeTest: {
         baseline,
@@ -31,15 +32,19 @@ export default class App extends Component {
     })
   }
 
-  clearActiveTest() {
+  resolveActiveTest() {
+    const imagePaths = getImagePaths()
     this.setState({
+      imagePaths: imagePaths,
       activeTest: {},
     })
   }
 
   render() {
-    return (
-      <div>
+    console.log(Object.keys(this.state.imagePaths.diff))
+    if (Array.from(Object.keys(this.state.imagePaths.diff)).length != 0) {
+      return (
+             <div>
         <AppBar position="static">
           <Toolbar>
             <Grid container justify="space-between" alignItems="center">
@@ -73,7 +78,9 @@ export default class App extends Component {
           </Grid>
         </Grid>
       </div>
-
-    )
+      )
+    } else {
+      return <div style={{ fontSize: 50 }}>No tests to diff! 🎉</div>
+    }
   }
 }

@@ -1,20 +1,11 @@
 const fs = require('fs')
 
 export function deleteFile(filepath) {
-  fs.exists(filepath, function(exists) {
-    if (exists) {
-      // File exists deletings
-      fs.unlink(filepath, function(err) {
-        if (err) {
-          alert('An error ocurred updating the file' + err.message)
-          console.log(err)
-          return
-        }
-      })
-    } else {
-      alert("This file doesn't exist, cannot delete")
-    }
-  })
+  if (fs.existsSync(filepath)) {
+    fs.unlinkSync(filepath)
+  } else {
+    alert("This file doesn't exist, cannot delete")
+  }
 }
 
 //Overwrite the baseline with the latest image, and delete the diff to resolve the test
@@ -23,4 +14,12 @@ export function acceptNewBaseline(baseline, latest, diff) {
     if (err) throw err
   })
   deleteFile(diff)
+}
+
+export function getImagePaths() {
+  const diff = glob.sync('./screenshots/diff/**/*.png')
+  const baseline = glob.sync('./screenshots/baseline/**/*.png')
+  const latest = glob.sync('./screenshots/latest/**/*.png')
+
+  return { baseline, latest, diff }
 }
