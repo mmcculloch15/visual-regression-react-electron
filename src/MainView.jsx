@@ -49,7 +49,7 @@ export default class MainView extends Component {
         </StyledView>
       )
     } else {
-      return <StyledView>Not active</StyledView>
+      return <StyledView>Select a test from the sidebar</StyledView>
     }
   }
 }

@@ -35,15 +35,20 @@ export default class App extends Component {
   }
 
   render() {
-    return (
-      <div style={{ display: 'flex' }}>
-        <SideBar imagePaths={this.state.imagePaths} setActiveTest={this.setActiveTest} />
-        <MainView
-          deleteFile={this.props.deleteFile}
-          activeTest={this.state.activeTest}
-          resolveActiveTest={this.resolveActiveTest}
-        />
-      </div>
-    )
+    console.log(Object.keys(this.state.imagePaths.diff))
+    if (Array.from(Object.keys(this.state.imagePaths.diff)).length != 0) {
+      return (
+        <div style={{ display: 'flex' }}>
+          <SideBar imagePaths={this.state.imagePaths} setActiveTest={this.setActiveTest} />
+          <MainView
+            deleteFile={this.props.deleteFile}
+            activeTest={this.state.activeTest}
+            resolveActiveTest={this.resolveActiveTest}
+          />
+        </div>
+      )
+    } else {
+      return <div style={{ fontSize: 50 }}>No tests to diff! 🎉</div>
+    }
   }
 }
