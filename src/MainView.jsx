@@ -14,12 +14,21 @@ export default class MainView extends Component {
   constructor(props) {
     super(props)
     this.rejectScreenshot = this.rejectScreenshot.bind(this)
+    this.acceptNewBaseline = this.acceptNewBaseline.bind(this)
   }
 
   rejectScreenshot() {
     deleteFile(this.props.activeTest.latest)
     deleteFile(this.props.activeTest.diff)
-    this.props.clearActiveTest()
+    this.props.resolveActiveTest(this.props.activeTest.diff)
+  }
+
+  acceptNewBaseline() {
+    fs.rename(this.props.activeTest.latest, this.props.activeTest.baseline, err => {
+      if (err) throw err
+    })
+    deleteFile(this.props.activeTest.diff)
+    this.props.resolveActiveTest(this.props.activeTest.diff)
   }
 
   render() {
@@ -31,11 +40,7 @@ export default class MainView extends Component {
           <Button variant="contained" color="secondary" onClick={this.rejectScreenshot}>
             Reject
           </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => acceptNewBaseline(baseline, latest, diff)}
-          >
+          <Button variant="contained" color="primary" onClick={this.acceptNewBaseline}>
             Accept
           </Button>
           <ImageWrapper title="Baseline" src={baseline} />

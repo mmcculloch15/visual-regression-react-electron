@@ -2,20 +2,21 @@ import React, { Component } from 'react'
 import TestDetails from './TestDetails'
 import SideBar from './SideBar'
 import MainView from './MainView'
+import { getImagePaths } from './fs'
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      imagePaths: this.props.imagePaths,
+      imagePaths: getImagePaths(),
       activeTest: {},
     }
+    console.log(this.state)
     this.setActiveTest = this.setActiveTest.bind(this)
-    this.clearActiveTest = this.clearActiveTest.bind(this)
+    this.resolveActiveTest = this.resolveActiveTest.bind(this)
   }
 
   setActiveTest(baseline, latest, diff) {
-    console.log('hi!')
     this.setState({
       activeTest: {
         baseline,
@@ -25,8 +26,10 @@ export default class App extends Component {
     })
   }
 
-  clearActiveTest() {
+  resolveActiveTest() {
+    const imagePaths = getImagePaths()
     this.setState({
+      imagePaths: imagePaths,
       activeTest: {},
     })
   }
@@ -34,11 +37,11 @@ export default class App extends Component {
   render() {
     return (
       <div style={{ display: 'flex' }}>
-        <SideBar imagePaths={this.props.imagePaths} setActiveTest={this.setActiveTest} />
+        <SideBar imagePaths={this.state.imagePaths} setActiveTest={this.setActiveTest} />
         <MainView
           deleteFile={this.props.deleteFile}
           activeTest={this.state.activeTest}
-          clearActiveTest={this.clearActiveTest}
+          resolveActiveTest={this.resolveActiveTest}
         />
       </div>
     )
