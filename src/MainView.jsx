@@ -3,12 +3,17 @@ import styled from 'styled-components'
 import ImageWrapper from './ImageWrapper'
 import Button from '@material-ui/core/Button'
 import { deleteFile, acceptNewBaseline } from './fs'
+import Grid from '@material-ui/core/Grid';
+
 
 const StyledView = styled.div`
-  flex: 85%;
-  flex-direction: row;
-  background-color: rgba(133, 169, 226, 0.3);
-`
+  background-color: rgba(133, 169, 226, 0.1);
+  padding:20px;
+`;
+
+const Buttons = styled.div`
+    margin-bottom:20px;
+`;
 
 export default class MainView extends Component {
   constructor(props) {
@@ -28,19 +33,33 @@ export default class MainView extends Component {
       const { baseline, latest, diff } = this.props.activeTest
       return (
         <StyledView>
-          <Button variant="contained" color="secondary" onClick={this.rejectScreenshot}>
-            Reject
+          <Buttons>
+            <Button variant="contained" color="secondary" onClick={this.rejectScreenshot}>
+              Reject
           </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => acceptNewBaseline(baseline, latest, diff)}
-          >
-            Accept
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => acceptNewBaseline(baseline, latest, diff)}
+            >
+              Accept
           </Button>
-          <ImageWrapper title="Baseline" src={baseline} />
-          <ImageWrapper title="Latest" src={latest} />
-          <ImageWrapper title="Diff" src={diff} />
+          </Buttons>
+
+          <Grid container spacing={20}>
+            <Grid item xs={4}>
+              <ImageWrapper title="Baseline" src={baseline} />
+            </Grid>
+            <Grid item xs={4}>
+              <ImageWrapper title="Latest" src={latest} />
+            </Grid>
+            <Grid item xs={4}>
+              <ImageWrapper title="Diff" src={diff} />
+            </Grid>
+          </Grid>
+
+
+
         </StyledView>
       )
     } else {
