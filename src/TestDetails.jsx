@@ -9,7 +9,11 @@ export default class TestDetails extends Component {
     const { component, breakpoint, browser, title, baseline, latest, diff } = this.props
     return (
       <div>
-        <ListItem button onClick={() => this.props.setActiveTest(baseline, latest, diff)}>
+        <ListItem
+          button
+          onClick={() => this.props.setActiveTest(baseline, latest, diff)}
+          style={{ borderRight: '1px solid #E0E0E0' }}
+        >
           <ListItemText>
             <p>Component: {component}</p>
             <p>Test: {title}</p>

@@ -4,9 +4,7 @@ import SideBar from './SideBar'
 import MainView from './MainView'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
-import Icon from '@material-ui/core/Icon'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
+import Header from './Header'
 import Typography from '@material-ui/core/Typography'
 import { getImagePaths } from './fs'
 
@@ -42,27 +40,8 @@ export default class App extends Component {
   render() {
     if (Array.from(Object.keys(this.state.imagePaths.diff)).length != 0) {
       return (
-        <div>
-          <AppBar position="static">
-            <Toolbar>
-              <Grid container justify="space-between" alignItems="center">
-                <Grid item xs={8}>
-                  <Typography variant="title" color="inherit">
-                    Visual Regression Diff
-                  </Typography>
-                </Grid>
-                <Grid>
-                  <Button variant="contained" color="primary">
-                    <Icon>
-                      <i className="material-icons">thumb_up</i>
-                    </Icon>
-                    Approve All
-                  </Button>
-                </Grid>
-              </Grid>
-            </Toolbar>
-          </AppBar>
-
+        <React.Fragment>
+          <Header />
           <Grid container>
             <Grid item xs={2}>
               <SideBar imagePaths={this.state.imagePaths} setActiveTest={this.setActiveTest} />
@@ -72,14 +51,25 @@ export default class App extends Component {
               <MainView
                 deleteFile={this.props.deleteFile}
                 activeTest={this.state.activeTest}
-                clearActiveTest={this.clearActiveTest}
+                resolveActiveTest={this.resolveActiveTest}
               />
             </Grid>
           </Grid>
-        </div>
+        </React.Fragment>
       )
     } else {
-      return <div style={{ fontSize: 50 }}>No tests to diff! 🎉</div>
+      return (
+        <React.Fragment>
+          <Header />
+          <div
+            style={{ fontSize: 50, left: '50%', top: '50%', height: 'inherit', marginTop: '30vh' }}
+          >
+            <Typography variant="display4" align="center">
+              No tests to diff! 🎉
+            </Typography>
+          </div>
+        </React.Fragment>
+      )
     }
   }
 }

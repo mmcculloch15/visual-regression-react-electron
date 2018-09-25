@@ -3,17 +3,16 @@ import styled from 'styled-components'
 import ImageWrapper from './ImageWrapper'
 import Button from '@material-ui/core/Button'
 import { deleteFile, acceptNewBaseline } from './fs'
-import Grid from '@material-ui/core/Grid';
-
+import Grid from '@material-ui/core/Grid'
 
 const StyledView = styled.div`
   background-color: rgba(133, 169, 226, 0.1);
-  padding:20px;
-`;
+  padding: 20px;
+`
 
 const Buttons = styled.div`
-    margin-bottom:20px;
-`;
+  margin-bottom: 20px;
+`
 
 export default class MainView extends Component {
   constructor(props) {
@@ -45,13 +44,13 @@ export default class MainView extends Component {
           <Buttons>
             <Button variant="contained" color="secondary" onClick={this.rejectScreenshot}>
               Reject
-          </Button>
-          <Button variant="contained" color="primary" onClick={this.acceptNewBaseline}>
-            Accept
-          </Button>
+            </Button>
+            <Button variant="contained" color="primary" onClick={this.acceptNewBaseline}>
+              Accept
+            </Button>
           </Buttons>
 
-          <Grid container spacing={20}>
+          <Grid container spacing={16}>
             <Grid item xs={4}>
               <ImageWrapper title="Baseline" src={baseline} />
             </Grid>
@@ -62,9 +61,6 @@ export default class MainView extends Component {
               <ImageWrapper title="Diff" src={diff} />
             </Grid>
           </Grid>
-
-
-
         </StyledView>
       )
     } else {

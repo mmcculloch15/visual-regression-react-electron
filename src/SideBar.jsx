@@ -7,7 +7,7 @@ export default class SideBar extends Component {
   render() {
     const diffPaths = this.props.imagePaths.diff || false
     return (
-      <List component="nav">
+      <List component="nav" style={{ marginTop: '-5px' }}>
         {diffPaths.map(path => {
           const testData = extractTestDataFromPath(path)
           const key = `${testData.browser}.${testData.breakpoint}.${testData.title}`
