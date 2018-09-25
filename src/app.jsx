@@ -11,7 +11,6 @@ export default class App extends Component {
       imagePaths: getImagePaths(),
       activeTest: {},
     }
-    console.log(this.state)
     this.setActiveTest = this.setActiveTest.bind(this)
     this.resolveActiveTest = this.resolveActiveTest.bind(this)
   }
@@ -35,7 +34,6 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(Object.keys(this.state.imagePaths.diff))
     if (Array.from(Object.keys(this.state.imagePaths.diff)).length != 0) {
       return (
         <div style={{ display: 'flex' }}>
