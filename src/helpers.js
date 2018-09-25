@@ -8,7 +8,7 @@ export function extractTestDataFromPath(path) {
     browser: splitTestDetails[1],
     title: splitTestDetails[0],
     baseline: path.replace('diff', 'baseline'),
-    latest: path.replace('diff, latest'),
+    latest: path.replace('diff', 'latest'),
     diff: path,
   }
 }

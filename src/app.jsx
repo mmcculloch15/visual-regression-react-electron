@@ -8,13 +8,10 @@ export default class App extends Component {
     super(props)
     this.state = {
       imagePaths: this.props.imagePaths,
-      activeTest: {
-        baseline: '',
-        latest: '',
-        diff: '',
-      },
+      activeTest: {},
     }
     this.setActiveTest = this.setActiveTest.bind(this)
+    this.clearActiveTest = this.clearActiveTest.bind(this)
   }
 
   setActiveTest(baseline, latest, diff) {
@@ -28,11 +25,21 @@ export default class App extends Component {
     })
   }
 
+  clearActiveTest() {
+    this.setState({
+      activeTest: {},
+    })
+  }
+
   render() {
     return (
       <div style={{ display: 'flex' }}>
         <SideBar imagePaths={this.props.imagePaths} setActiveTest={this.setActiveTest} />
-        <MainView activeTest={this.state.activeTest} />
+        <MainView
+          deleteFile={this.props.deleteFile}
+          activeTest={this.state.activeTest}
+          clearActiveTest={this.clearActiveTest}
+        />
       </div>
     )
   }

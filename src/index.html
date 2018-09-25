@@ -17,11 +17,11 @@
 
   const diff = glob.sync('./screenshots/diff/**/*.png')
   const baseline = glob.sync('./screenshots/baseline/**/*.png')
-  const current = glob.sync('./screenshots/latest/**/*.png')
+  const latest = glob.sync('./screenshots/latest/**/*.png')
 
   console.log(diff)
 
-  const imagePaths = { diff, baseline, current }
+  const imagePaths = { baseline, latest, diff }
 
 </script>
 
