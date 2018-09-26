@@ -3,17 +3,17 @@ import TestDetails from './TestDetails'
 import { extractTestDataFromPath, getScreenshotPaths } from './helpers'
 import List from '@material-ui/core/List'
 
-export default class SideBar extends Component {
-  render() {
-    const diffPaths = this.props.imagePaths.diff || false
-    return (
-      <List component="nav" style={{ marginTop: '-8px' }}>
-        {diffPaths.map(path => {
-          const testData = extractTestDataFromPath(path)
-          const key = `${testData.browser}.${testData.breakpoint}.${testData.title}`
-          return <TestDetails key={key} {...testData} {...this.props} />
-        })}
-      </List>
-    )
-  }
+const SideBar = props => {
+  const diffPaths = props.imagePaths.diff
+  return (
+    <List component="nav">
+      {diffPaths.map(path => {
+        const testData = extractTestDataFromPath(path)
+        const key = `${testData.browser}.${testData.breakpoint}.${testData.title}`
+        return <TestDetails key={key} {...testData} {...props} />
+      })}
+    </List>
+  )
 }
+
+export default SideBar

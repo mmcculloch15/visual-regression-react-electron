@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button'
 
 const Header = () => {
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Toolbar>
         <Grid container justify="space-between" alignItems="center">
           <Grid item xs={8}>

@@ -42,7 +42,7 @@ export default class App extends Component {
       return (
         <React.Fragment>
           <Header />
-          <Grid container>
+          <Grid container position="fixed">
             <Grid item xs={2} style={{ borderRight: '1px solid #E0E0E0' }}>
               <SideBar imagePaths={this.state.imagePaths} setActiveTest={this.setActiveTest} />
             </Grid>
@@ -62,7 +62,12 @@ export default class App extends Component {
         <React.Fragment>
           <Header />
           <div
-            style={{ left: '50%', top: '50%', height: 'inherit', paddingTop: '20vh' }}
+            style={{
+              left: '50%',
+              top: '50%',
+              height: 'inherit',
+              paddingTop: '20vh',
+            }}
             className="pattern-background"
           >
             <Typography variant="display4" align="center">

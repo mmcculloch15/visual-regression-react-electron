@@ -9,6 +9,8 @@ import Grid from '@material-ui/core/Grid'
 const StyledView = styled.div`
   padding: 50px;
   height: 300vh;
+  position: fixed;
+  top: 20px;
 `
 
 const Buttons = styled.div`
