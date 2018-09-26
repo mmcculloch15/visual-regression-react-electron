@@ -62,7 +62,7 @@ export default class App extends Component {
         <React.Fragment>
           <Header />
           <div
-            style={{ fontSize: 50, left: '50%', top: '50%', height: 'inherit', paddingTop: '20vh' }}
+            style={{ left: '50%', top: '50%', height: 'inherit', paddingTop: '20vh' }}
             className="pattern-background"
           >
             <Typography variant="display4" align="center">

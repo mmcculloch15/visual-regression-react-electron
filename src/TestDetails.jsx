@@ -18,9 +18,9 @@ export default class TestDetails extends Component {
     const { component, breakpoint, browser, title, baseline, latest, diff } = this.props
     return (
       <div>
-        <ListItem button onClick={() => this.handleClick(baseline, latest, diff)}>
+        <ListItem dense={true} button onClick={() => this.handleClick(baseline, latest, diff)}>
           <ListItemText>
-            <p>Suite: {component}</p>
+            <p>Component: {component}</p>
             <p>Test: {title}</p>
             <p>Browser: {browser} </p>
             <p>Breakpoint: {breakpoint} </p>
