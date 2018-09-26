@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import Icon from '@material-ui/core/Icon'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
+import React, { Component } from "react";
+import Icon from "@material-ui/core/Icon";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
 
 const Header = () => {
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Toolbar>
         <Grid container justify="space-between" alignItems="center">
           <Grid item xs={8}>
@@ -27,7 +27,7 @@ const Header = () => {
         </Grid>
       </Toolbar>
     </AppBar>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

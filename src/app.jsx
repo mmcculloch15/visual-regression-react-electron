@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
-import TestDetails from './TestDetails'
-import SideBar from './SideBar'
-import MainView from './MainView'
-import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
-import Header from './Header'
-import Typography from '@material-ui/core/Typography'
-import { getImagePaths } from './fs'
+import React, { Component } from "react";
+import TestDetails from "./TestDetails";
+import SideBar from "./SideBar";
+import MainView from "./MainView";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import Header from "./Header";
+import Typography from "@material-ui/core/Typography";
+import { getImagePaths } from "./fs";
 
 export default class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       imagePaths: getImagePaths(),
-      activeTest: {},
-    }
-    this.setActiveTest = this.setActiveTest.bind(this)
-    this.resolveActiveTest = this.resolveActiveTest.bind(this)
+      activeTest: {}
+    };
+    this.setActiveTest = this.setActiveTest.bind(this);
+    this.resolveActiveTest = this.resolveActiveTest.bind(this);
   }
 
   setActiveTest(baseline, latest, diff) {
@@ -24,17 +24,17 @@ export default class App extends Component {
       activeTest: {
         baseline,
         latest,
-        diff,
-      },
-    })
+        diff
+      }
+    });
   }
 
   resolveActiveTest() {
-    const imagePaths = getImagePaths()
+    const imagePaths = getImagePaths();
     this.setState({
       imagePaths: imagePaths,
-      activeTest: {},
-    })
+      activeTest: {}
+    });
   }
 
   render() {
@@ -42,9 +42,12 @@ export default class App extends Component {
       return (
         <React.Fragment>
           <Header />
-          <Grid container>
-            <Grid item xs={2} style={{ borderRight: '1px solid #E0E0E0' }}>
-              <SideBar imagePaths={this.state.imagePaths} setActiveTest={this.setActiveTest} />
+          <Grid container position="fixed">
+            <Grid item xs={2} style={{ borderRight: "1px solid #E0E0E0" }}>
+              <SideBar
+                imagePaths={this.state.imagePaths}
+                setActiveTest={this.setActiveTest}
+              />
             </Grid>
 
             <Grid item xs className="pattern-background">
@@ -56,13 +59,18 @@ export default class App extends Component {
             </Grid>
           </Grid>
         </React.Fragment>
-      )
+      );
     } else {
       return (
         <React.Fragment>
           <Header />
           <div
-            style={{ left: '50%', top: '50%', height: 'inherit', paddingTop: '20vh' }}
+            style={{
+              left: "50%",
+              top: "50%",
+              height: "inherit",
+              paddingTop: "20vh"
+            }}
             className="pattern-background"
           >
             <Typography variant="display4" align="center">
@@ -70,7 +78,7 @@ export default class App extends Component {
             </Typography>
           </div>
         </React.Fragment>
-      )
+      );
     }
   }
 }
