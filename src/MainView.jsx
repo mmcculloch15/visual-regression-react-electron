@@ -13,6 +13,9 @@ const StyledView = styled.div`
 
 const Buttons = styled.div`
   margin-bottom: 20px;
+  button {
+    margin: 5px;
+  }
 `
 
 export default class MainView extends Component {
