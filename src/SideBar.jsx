@@ -1,7 +1,7 @@
-import React, { Component } from "react"
-import TestDetails from "./TestDetails"
-import { extractTestDataFromPath, getScreenshotPaths } from "./helpers"
-import List from "@material-ui/core/List"
+import React, { Component } from 'react'
+import TestDetails from './TestDetails'
+import { extractTestDataFromPath, getScreenshotPaths } from './helpers'
+import List from '@material-ui/core/List'
 
 const SideBar = props => {
   const diffPaths = props.imagePaths.diff

@@ -1,8 +1,8 @@
-import React, { Component } from "react"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import { Typography } from "@material-ui/core"
-import styled from "styled-components"
+import React, { Component } from 'react'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import { Typography } from '@material-ui/core'
+import styled from 'styled-components'
 
 const ImageWrap = styled.div`
   border-color: coral;
@@ -27,7 +27,7 @@ const ImageWrapper = props => {
           <Typography color="textSecondary">{title}</Typography>
         </CardContent>
         <ImageWrap>
-          <Img src={"../" + src} />
+          <Img src={'../' + src} />
         </ImageWrap>
       </Card>
     </div>

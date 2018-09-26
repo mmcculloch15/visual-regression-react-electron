@@ -1,10 +1,10 @@
-import React, { Component } from "react"
-import styled from "styled-components"
-import ImageWrapper from "./ImageWrapper"
-import Button from "@material-ui/core/Button"
-import Typography from "@material-ui/core/Typography"
-import { deleteFile, acceptNewBaseline } from "./fs"
-import Grid from "@material-ui/core/Grid"
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import ImageWrapper from './ImageWrapper'
+import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
+import { deleteFile, acceptNewBaseline } from './fs'
+import Grid from '@material-ui/core/Grid'
 
 const StyledView = styled.div`
   padding: 50px;

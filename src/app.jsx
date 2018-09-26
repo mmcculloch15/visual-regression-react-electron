@@ -1,19 +1,19 @@
-import React, { Component } from "react"
-import TestDetails from "./TestDetails"
-import SideBar from "./SideBar"
-import MainView from "./MainView"
-import Grid from "@material-ui/core/Grid"
-import Button from "@material-ui/core/Button"
-import Header from "./Header"
-import Typography from "@material-ui/core/Typography"
-import { getImagePaths } from "./fs"
+import React, { Component } from 'react'
+import TestDetails from './TestDetails'
+import SideBar from './SideBar'
+import MainView from './MainView'
+import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
+import Header from './Header'
+import Typography from '@material-ui/core/Typography'
+import { getImagePaths } from './fs'
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       imagePaths: getImagePaths(),
-      activeTest: {}
+      activeTest: {},
     }
     this.setActiveTest = this.setActiveTest.bind(this)
     this.resolveActiveTest = this.resolveActiveTest.bind(this)
@@ -24,8 +24,8 @@ export default class App extends Component {
       activeTest: {
         baseline,
         latest,
-        diff
-      }
+        diff,
+      },
     })
   }
 
@@ -33,7 +33,7 @@ export default class App extends Component {
     const imagePaths = getImagePaths()
     this.setState({
       imagePaths: imagePaths,
-      activeTest: {}
+      activeTest: {},
     })
   }
 
@@ -43,7 +43,7 @@ export default class App extends Component {
         <React.Fragment>
           <Header />
           <Grid container position="fixed">
-            <Grid item xs={2} style={{ borderRight: "1px solid #E0E0E0" }}>
+            <Grid item xs={2} style={{ borderRight: '1px solid #E0E0E0' }}>
               <SideBar imagePaths={this.state.imagePaths} setActiveTest={this.setActiveTest} />
             </Grid>
 
@@ -63,10 +63,10 @@ export default class App extends Component {
           <Header />
           <div
             style={{
-              left: "50%",
-              top: "50%",
-              height: "inherit",
-              paddingTop: "20vh"
+              left: '50%',
+              top: '50%',
+              height: 'inherit',
+              paddingTop: '20vh',
             }}
             className="pattern-background"
           >
