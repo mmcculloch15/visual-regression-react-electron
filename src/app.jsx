@@ -43,11 +43,11 @@ export default class App extends Component {
         <React.Fragment>
           <Header />
           <Grid container>
-            <Grid item xs={2}>
+            <Grid item xs={2} style={{ borderRight: '1px solid #E0E0E0' }}>
               <SideBar imagePaths={this.state.imagePaths} setActiveTest={this.setActiveTest} />
             </Grid>
 
-            <Grid item xs>
+            <Grid item xs className="pattern-background">
               <MainView
                 deleteFile={this.props.deleteFile}
                 activeTest={this.state.activeTest}
@@ -62,7 +62,8 @@ export default class App extends Component {
         <React.Fragment>
           <Header />
           <div
-            style={{ fontSize: 50, left: '50%', top: '50%', height: 'inherit', marginTop: '30vh' }}
+            style={{ fontSize: 50, left: '50%', top: '50%', height: 'inherit', paddingTop: '20vh' }}
+            className="pattern-background"
           >
             <Typography variant="display4" align="center">
               No tests to diff! 🎉

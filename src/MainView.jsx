@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import ImageWrapper from './ImageWrapper'
 import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
 import { deleteFile, acceptNewBaseline } from './fs'
 import Grid from '@material-ui/core/Grid'
 
 const StyledView = styled.div`
-  background-color: rgba(133, 169, 226, 0.1);
-  padding: 20px;
+  padding: 50px;
+  height: 300vh;
 `
 
 const Buttons = styled.div`
@@ -64,7 +65,13 @@ export default class MainView extends Component {
         </StyledView>
       )
     } else {
-      return <StyledView>Select a test from the sidebar</StyledView>
+      return (
+        <StyledView>
+          <Typography variant="display2" align="center">
+            Select a test from the sidebar
+          </Typography>
+        </StyledView>
+      )
     }
   }
 }
